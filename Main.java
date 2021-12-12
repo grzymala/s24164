@@ -1,267 +1,165 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Main {
 
-    static double prostokat(double a, double b){
-        System.out.println("Pole prostokata wynosi: "  + a * b);
-        return a * b;
+    public static void main(String[] args)
+    {
+        int[] arr_a = { 1, 2, 3, 7, 9, 0 };
+        int[] arr_b = { 1, 2, 3, 9, 0, 6, 3 };
+        int[] arr_c = { 1, 2, 3, 7, 9, 0, 0 };
+        int[] arr_d = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        // Zadanie 1
+        System.out.println("\nZadanie 1");
+        printArray(arr_d);
+        printArray(reverseArr(arr_d));
+
+        // Zadanie 2
+        System.out.println("\nZadanie 2");
+        System.out.println(arrayToString(arr_a));
+
+        // Zadanie 3
+        System.out.println("\nZadanie 3");
+        printArray(arr_d);
+        printArray(getEven(arr_d));
+
+        // Zadanie 4
+        System.out.println("\nZadanie 4");
+        System.out.println(arrayEquals(arr_a, arr_c));
+
+        // Zadanie 5
+        System.out.println("\nZadanie 5");
+        printArray(arr_a);
+
+        // Zadanie 6
+        System.out.println("\nZadanie 6");
+        System.out.println(isInArray(arr_a, 7));
+
+        // Zadanie 7
+        double[] arr_e = { 1, 2, 3, 4, 5 };
+        // (1 + 2 + 3 + 4 + 5) / 5 = 15 / 5 = 3
+        System.out.println("\nZadanie 7");
+        System.out.println(getAlgebraicMean(arr_e));
+
+        // Zadanie 8
+        System.out.println("\nZadanie 8");
+        printArray(arr_a);
+        System.out.println(isIncreasing(arr_a));
+        printArray(arr_b);
+        System.out.println(isIncreasing(arr_b));
     }
 
-    static double kwadrat(double a){
-        System.out.println("Pole kwadratu wynosi: " + a * a);
-        return a * a;
-    }
-    static double trojkat(double a, double h) {
-        System.out.println("Pole trojkata wynosi: " +  (a * h)/2);
-        return (a * h)/2;
-    }
-    static double rab(double a, double h) {
-        System.out.println("Pole rabu wynosi: " + a * h);
-        return a * h;
-    }
-    static double rownoleglobok(double a, double h) {
-        System.out.println("Pole rownolegloboku wynosi: " + a * h);
-        return a * h;
-    }
-    static double trapez(double a, double b, double h) {
-        System.out.println("Pole trapezu wynosi: " + (a+b)*h/2);
-        return (a+b)*h/2;
-    }
 
 
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        // zadanie 1
-        System.out.print("Powiedz prosze jaka figura Cibie interesuje");
-        int figura = scanner.nextInt();
-
-        switch(figura){
-            case 1:
-                System.out.println("Podaj bok a: ");
-                double bok_a = scanner.nextDouble();
-                System.out.println("Podaj bok b; ");
-                double bok_b = scanner.nextDouble();
-                prostokat(bok_a, bok_b);
-                break;
-            case 2:
-                System.out.println("Podaj bok a: ");
-                double bok_kwadrat = scanner.nextDouble();
-                kwadrat(bok_kwadrat);
-                break;
-            case 3:
-                System.out.print("Podaj bok a:");
-                double bok_trojkat = scanner.nextDouble();
-                System.out.println("Podaj h: ");
-                double h = scanner.nextDouble();
-                trojkat(bok_trojkat, h);
-                break;
-            case 4:
-                System.out.print("Podaj bok a:");
-                double bok_rabu = scanner.nextDouble();
-                System.out.println("Podaj h: ");
-                double h2 = scanner.nextDouble();
-                rab(bok_rabu, h2);
-                break;
-            case 5:
-                System.out.print("Podaj bok a:");
-                double bok_rownoleglobok = scanner.nextDouble();
-                System.out.println("Podaj h: ");
-                double h3 = scanner.nextDouble();
-                rownoleglobok(bok_rownoleglobok, h3);
-                break;
-            case 6:
-                System.out.print("Podaj bok a:");
-                double bok_trapez = scanner.nextDouble();
-                System.out.println("Podaj b: ");
-                double bok_trapez2 = scanner.nextDouble();
-                System.out.print("Podaj bok h:");
-                double h4 = scanner.nextDouble();
-                trapez(bok_trapez, bok_trapez2, h4);
-                break;
-
-        }
-
-
-
-        //zadanie 2
-
-        System.out.print("Podaj jedną liczbę całkowitą");
-        int numer = scanner.nextInt();
-
-        boolean moduloPrzezDwa = numer % 2 == 0;
-        boolean moduloPrzezTrzy = numer % 3 == 0;
-        boolean moduloPrzezPiec = numer % 5 == 0;
-
-        if (moduloPrzezPiec && moduloPrzezTrzy && moduloPrzezDwa) {
-            System.out.print("Liczba " + numer + " jest podzielna przez 2,3 i 5");
-        } else if (moduloPrzezDwa && moduloPrzezTrzy) {
-            System.out.print("Liczba " + numer + " jest podzielna przez 2 i 3");
-        } else if (moduloPrzezPiec) {
-            System.out.print("Liczba " + numer + " jest podzielna przez 5");
-        } else if (moduloPrzezTrzy) {
-            System.out.print("Liczba " + numer + " jest podzielna przez 3");
-        } else if (moduloPrzezDwa) {
-            System.out.print("Liczba " + numer + " jest podzielna przez 2");
-        } else {
-            System.out.print("Liczba " + numer + " nie jest podzielna przez 2,3 i 5");
-
-        }
-
-
-
-        //zadanie 3
-
-
-        System.out.print("Podaj liczbe calkowita skladajaca sie skladajaca sie  maksymalnie z czterech cyfr ");
-
-
-        double liczba = scanner.nextDouble();
-
-        if (liczba < 10) {
-            System.out.print("Numer" + liczba + " jest liczba jednocyfrowa");
-        } else if (liczba <= 100) {
-            System.out.print("Numer" + liczba + " jest liczba dwucyfrowa");
-        } else if (liczba >= 100) {
-            System.out.print("Numer" + liczba + " jest liczba trzycyfrowa");
-        } else if (liczba >= 1000) {
-            System.out.print("Numer" + liczba + " jest liczba czterocyfrowa");
-        }
-
-
-        //zadanie 4
-
-        System.out.print("Podaj numer misiąca ");
-
-        int numerMiesiaca = scanner.nextInt();
-
-        switch (numerMiesiaca) {
-
-            case 1:
-                System.out.print("Styczeń mrozi, lipiec skwarem grozi.");
-                break;
-            case 2:
-                System.out.print("Idzie luty, podkuj but");
-                break;
-            case 3:
-                System.out.print("Kiedy w marcu deszczu wiele, nieurodzaj zboża ściele.");
-                break;
-            case 4:
-                System.out.print("Gdyby w kwietniu nie padało, to owoców będzie mało.");
-
-            case 5:
-                System.out.print("Gdy kukułka kuka w maju, spodziewaj się urodzaju.");
-                break;
-            case 6:
-                System.out.print("Gdy czerwiec z burzami - staw rybny, a las grzybny.");
-                break;
-            case 7:
-                System.out.print("Kiedy lipiec daje deszcze, długie lato będzie jeszcze.");
-                break;
-            case 8:
-                System.out.print("Kiedy sierpień wrzos rozwija - jesień krótka, szybko mija.");
-                break;
-            case 9:
-                System.out.print("Jaki pierwszy wrzesień, taka będzie jesień.");
-                break;
-            case 10:
-                System.out.print("Gdy październik ciepło trzyma, zwykle mroźna bywa zima.");
-                break;
-            case 11:
-                System.out.print("W listopadzie goło w sadzie.");
-                break;
-            case 12:
-                System.out.print("Grudzień to miesiąc zawiły, czasem srogi, czasem miły.");
-                break;
-
-        }
-
-
-
-        //zadanie 5
-        System.out.print("Podaj numer misiąca ");
-
-        int numerMiesiaca2 = scanner.nextInt();
-
-        switch (numerMiesiaca2) {
-            case 1:
-                System.out.print("To dopiero poczatek...Przed nami jeszcze troche :)");
-                break;
-            case 2:
-                System.out.print("Przed nami jeszcze marzec, kwiecien, maj, czerwiec, lipiec, sierpien, wrzesien, pazdziernik, listopad i grudzien");
-                break;
-            case 3:
-                System.out.print("Przed nami jeszcze kwiecien, maj, czerwiec, lipiec, sierpien, wrzesien, pazdziernik, listopad i grudzien.");
-                break;
-            case 4:
-                System.out.print("Przed nami jeszcze maj, czerwiec, lipiec, sierpien, wrzesien, pazdziernik, listopad i grudzien");
-                break;
-            case 5:
-                System.out.print("Przed nami jeszcze czerwiec, lipiec, sierpien, wrzesien, pazdziernik, listopad i grudzien.");
-                break;
-            case 6:
-                System.out.print("To już połowa! Przed nami jeszcze lipiec, sierpien, wrzesien, pazdziernik, listopad i grudzien.");
-                break;
-            case 7:
-                System.out.print("Przed nami jeszcze sierpien, wrzesien, pazdziernik, listopad i grudzien");
-                break;
-            case 8:
-                System.out.print("Przed nami jeszcze wrzesien, pazdziernik, listopad i grudzien.");
-                break;
-            case 9:
-                System.out.print("Przed nami jeszcze pazdziernik, listopad i grudzien.");
-                break;
-            case 10:
-                System.out.print("Jestesmy blisko konca! Przed nami jeszcze listopad i grudzien.");
-                break;
-            case 11:
-                System.out.print("To ostatnia prosta! Przed nami jeszcze tylko grudzien.");
-                break;
-            case 12:
-                System.out.print("Hura! To już koniec roku!");
-                break;
-
-        }
-
-
-
-
-        //zadanie 6
-
-        System.out.print("Podaj liczbe rzeczywista");
-        int liczbaRzeczywista= scanner.nextInt();
-
-        if (liczbaRzeczywista<0) {
-            System.out.print("Wartość funkcji signum dla "+ liczbaRzeczywista+ " to -1");
-        }
-        else if (liczbaRzeczywista>0){
-            System.out.print("Wartość funkcji signum dla "+ liczbaRzeczywista+ " to 1");
-        }
-        else if (liczbaRzeczywista==0){
-            System.out.print("Wartość funkcji signum dla "+ liczbaRzeczywista+ " to 0");
-        }
-
-
-
-
-        //zadanie 7
-
-        System.out.print("Podaj liczbe a ");
-        int a= scanner.nextInt();
-        System.out.print("Podaj liczbe b ");
-        int b= scanner.nextInt();
-        System.out.print("Podaj liczbe n ");
-        int n= scanner.nextInt();
-
-        if(a%n == b%n)
+    // Zadanie 1
+    static int[] reverseArr(int[] arr)
+    {
+        for(int i = 0; i < arr.length/2; i++)
         {
-            System.out.print("Liczba"+a+"i"+b+"nie przystaja do siebie modulo"+n);
+            int tmp = arr[i];
+            arr[i] = arr[arr.length-1-i];
+            arr[arr.length-1-i] = tmp;
         }
-        else
-        {
-            System.out.print("Liczba  "+a+"  i"+b+"  przystaja do siebie modulo  "+n);
-        }
+
+        return arr;
     }
+
+
+
+    // Zadanie 2
+    static String arrayToString(int[] arr)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            sb.append(arr[i]);
+            if(i < arr.length-1)
+                sb.append(",");
+        }
+
+        return sb.toString();
+    }
+
+
+
+    // Zadanie 3
+    static int[] getEven(int[] arr)
+    {
+        int even = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i]%2 == 0)
+                even++;
+        }
+
+        int u = 0;
+        int[] output = new int[even];
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i]%2 == 0)
+            {
+                output[u++] = arr[i];
+            }
+        }
+
+        return output;
+    }
+
+    // Zadanie 4
+    static boolean arrayEquals(int[] arr_a, int[] arr_b)
+    {
+        if(arr_a.length != arr_b.length)
+            return false;
+
+        for(int i = 0; i < arr_a.length; i++)
+            if(arr_a[i] != arr_b[i])
+                return false;
+
+        return true;
+    }
+
+    // Zadanie 5
+    static void printArray(int[] arr)
+    {
+        for(int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i]);
+            if(i < arr.length-1)
+                System.out.print(",");
+        }
+        System.out.println();
+    }
+
+    // Zadanie 6
+    static boolean isInArray(int[] arr, int val)
+    {
+        for(int i = 0; i < arr.length; i++)
+            if(arr[i] == val)
+                return true;
+
+        return false;
+    }
+
+    // Zadanie 7
+    static double getAlgebraicMean(double[] arr)
+    {
+        double sum = 0;
+        for(int i = 0; i < arr.length; i++)
+            sum += arr[i];
+
+        return sum/arr.length;
+    }
+
+    // Zadanie 8
+    static boolean isIncreasing(int[] arr)
+    {
+        for(int i = 1; i < arr.length-1; i++)
+            if(arr[i] > arr[i+1])
+                return false;
+
+        return true;
+    }
+
 }
+
